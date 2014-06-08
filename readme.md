@@ -21,8 +21,10 @@ Lobos is available through [Clojars].
 For the latest release, in Cake/Leiningen, use:
 
 #### `project.clj`
+This port let you use lobos with the very last version of korma.
+
 ```clojure
-:dependencies [[lobos "1.0.0-beta1"]]
+:dependencies [[sicia/lobos "1.0.0-beta2"]]
 ```
 
 or in Maven:
@@ -30,9 +32,9 @@ or in Maven:
 #### `pom.xml`
 ```xml
 <dependency>
-  <groupId>lobos</groupId>
+  <groupId>siscia</groupId>
   <artifactId>lobos</artifactId>
-  <version>1.0.0-beta1</version>
+  <version>1.0.0-beta2</version>
 </dependency>
 ```
 
