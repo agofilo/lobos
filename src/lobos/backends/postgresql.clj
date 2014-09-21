@@ -64,23 +64,23 @@
 
 (defmethod compile [:postgresql DataTypeClause]
   [expression]
-  (let [{:keys [dtype args options alter]} expression
+  (let [{:keys [dtype args options]} expression
         {:keys [time-zone]} options
         dtype (first (replace compiler-data-type-aliases [dtype]))
         args (if (#{:bytea :text} dtype) [] args)]
     (unsupported (#{:binary :varbinary} dtype)
       "Use blob instead.")
     (join \space
-      (when alter "TYPE")
       (str (as-sql-keyword dtype) (as-list args))
       (when time-zone "WITH TIME ZONE"))))
 
 (defmethod compile [:postgresql ColumnDefinition]
   [definition]
   (let [{:keys [db-spec cname data-type default
-                auto-inc not-null others]} definition]
+                auto-inc not-null others alter]} definition]
     (apply join \space
       (as-identifier db-spec cname)
+      (when alter "TYPE")
       (if auto-inc
         (if (= :bigint (:dtype data-type))
           "BIGSERIAL"
