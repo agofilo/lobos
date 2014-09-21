@@ -64,13 +64,14 @@
 
 (defmethod compile [:postgresql DataTypeClause]
   [expression]
-  (let [{:keys [dtype args options]} expression
+  (let [{:keys [dtype args options alter]} expression
         {:keys [time-zone]} options
         dtype (first (replace compiler-data-type-aliases [dtype]))
         args (if (#{:bytea :text} dtype) [] args)]
     (unsupported (#{:binary :varbinary} dtype)
       "Use blob instead.")
     (join \space
+      (when alter "TYPE")
       (str (as-sql-keyword dtype) (as-list args))
       (when time-zone "WITH TIME ZONE"))))
 
