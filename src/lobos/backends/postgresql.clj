@@ -77,9 +77,10 @@
 (defmethod compile [:postgresql ColumnDefinition]
   [definition]
   (let [{:keys [db-spec cname data-type default
-                auto-inc not-null others]} definition]
+                auto-inc not-null others alter]} definition]
     (apply join \space
       (as-identifier db-spec cname)
+      (when alter "TYPE")
       (if auto-inc
         (if (= :bigint (:dtype data-type))
           "BIGSERIAL"
