@@ -311,7 +311,7 @@
 (defmethod compile [::standard AlterModifyDataTypeAndOptionsAction]
   [action]
   (let [{:keys [db-spec element]} action]
-    (str "ALTER COLUMN " (compile element))))
+    (str "ALTER COLUMN " (compile (assoc element :alter :alter)))))
 
 (defmethod compile [::standard AlterModifyDefaultAction]
   [action]
