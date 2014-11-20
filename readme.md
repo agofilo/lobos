@@ -1,6 +1,6 @@
 # Lobos
 
-[![Continuous Integration status](https://secure.travis-ci.org/siscia/lobos)](http://travis-ci.org/budu/lobos)
+[![Continuous Integration status](https://secure.travis-ci.org/budu/lobos.png)](http://travis-ci.org/budu/lobos)
 
 **Lobos** is a SQL database schema manipulation and migration library
 written in [Clojure]. It currently support supports H2, MySQL,
@@ -24,7 +24,7 @@ For the latest release, in Cake/Leiningen, use:
 This port let you use lobos with the very last version of korma.
 
 ```clojure
-:dependencies [[sicia/lobos "1.0.0-beta2"]]
+:dependencies [[org.clojars.agofilo/lobos "1.0.0-beta"]]
 ```
 
 or in Maven:
@@ -32,9 +32,9 @@ or in Maven:
 #### `pom.xml`
 ```xml
 <dependency>
-  <groupId>siscia</groupId>
+  <groupId>org.clojars.agofilo</groupId>
   <artifactId>lobos</artifactId>
-  <version>1.0.0-beta2</version>
+  <version>1.0.0-beta</version>
 </dependency>
 ```
 
