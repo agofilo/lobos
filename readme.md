@@ -1,6 +1,6 @@
 # Lobos
 
-[![Continuous Integration status](https://secure.travis-ci.org/agofilo/lobos)](http://travis-ci.org/budu/lobos)
+[![Continuous Integration status](https://secure.travis-ci.org/budu/lobos.png)](http://travis-ci.org/budu/lobos)
 
 **Lobos** is a SQL database schema manipulation and migration library
 written in [Clojure]. It currently support supports H2, MySQL,
